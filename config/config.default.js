@@ -24,12 +24,20 @@ module.exports = appInfo => {
     },
     security: {
       csrf: {
-        enable: true,
+        enable: false,
+        // ignoreJSON: false,
+        // useSession: true, // 默认为 false，当设置为 true 时，将会把 csrf token 保存到 Session 中
+        // cookieName: 'csrfToken', // Cookie 中的字段名，默认为 csrfToken
+        // sessionName: 'csrfToken', // Session 中的字段名，默认为 csrfToken
+        // queryName: '_csrf', // 通过 query 传递 CSRF token 的默认字段为 _csrf
+        // bodyName: '_csrf', // 通过 body 传递 CSRF token 的默认字段为 _csrf
+        // headerName: 'x-csrf-token', // 通过 header 传递 CSRF token 的默认字段为 x-csrf-token
       },
       domainWhiteList: [ '*' ],
     },
     cors: {
-      origin: '*',
+      origin: 'http://localhost:3000',
+      credentials: true, // 允许Cook可以跨域
       allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
     },
   };
